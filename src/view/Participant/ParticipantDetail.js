@@ -24,7 +24,7 @@ const ParticipantDetail = () => {
         <Link to={`/activity/${aid}`} className='text-decoration-none align-self-start text-dark'>
           <CIcon icon={freeSet.cilArrowLeft} size="xxl" />
         </Link>
-        <img src={participant.img} style={{maxHeight:"30vh", maxWidth:"50vh"}} className='rounded-circle img-fluid bg-white p-4' />
+        <img src={participant.img} style={{maxHeight:"25vh", maxWidth:"50vh"}} className='rounded-circle img-fluid bg-white p-4' />
         <h1 className='text-dark mb-4'><b>{participant.name}/{participant.nickname}</b></h1>
         {participant.links.map(link=>{
           if(link.includes('facebook')) return(<a href={link} className='text-decoration-none text-dark'><img src={facebookIcon} /></a>)
