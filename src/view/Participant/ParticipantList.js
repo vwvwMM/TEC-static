@@ -58,7 +58,7 @@ const ParticipantList = () => {
                     <Link to={`/participant/${participant.id}/?aid=${activity.id}`} className='text-decoration-none shadow'>
                         <div className='d-flex justify-content-between align-items-center mx-3 my-4'>
                             <div className='col-3 d-flex justify-content-center align-items-center card'>
-                                <img src={"https://drive.google.com/uc?export=view&id="+participant.img} className='img-fluid rounded card-img' style={{maxHeight: "15rem",objectFit:"cover" }} />
+                                <img src={"https://drive.google.com/uc?export=view&id="+participant.img} className='img-fluid rounded card-img' style={{maxHeight: "35vh",objectFit:"cover" }} />
                                 <div className='card-img-overlay d-flex justify-content-end align-items-end'>
                                     <CIcon icon={freeSet.cilHeart} className='text-secondary bg-white p-1 rounded' size='xl'/>
                                 </div>

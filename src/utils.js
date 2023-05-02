@@ -9,6 +9,7 @@ export const getParticipants = () => {
     for(let k of listKey){
         for(let p of jp){
             p[k]=p[k].split('、')
+            if(p[k].length===1&&p[k][0]==='') p[k]=['無']
         }
     }
     for(let p of jp){
