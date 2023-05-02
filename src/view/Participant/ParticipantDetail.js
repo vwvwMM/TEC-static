@@ -37,8 +37,8 @@ const ParticipantDetail = () => {
               else if(link.includes('youtube')) return (<a href={link} className='text-decoration-none text-dark'><img src={youtubeIcon} /></a>)
             })}
           </div>
-          <h4 className='text-secondary my-3'>{participant.organization} {participant.position}</h4>
-          {participant.hashtags&&<h4 className='text-secondary'>{
+          <h3 className='text-secondary my-3'>{participant.organization} {participant.position}</h3>
+          {participant.hashtags&&<h4 className='text-secondary text-center px-3'>{
             participant.hashtags.map(h=>`#${h}`)
           }</h4>}
           <br/>
