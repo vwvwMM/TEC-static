@@ -27,7 +27,7 @@ const Activity = () => {
     }, [mode,acts])
   return (
     pending?<Spinner/>:(<div className='container pt-5'>
-        <Navbar head='All activities' url="/activities" icon={freeSet.cilPlus} iconFunc={addActivity} />
+        <Navbar head='All activities' url="/" icon={freeSet.cilPlus} iconFunc={addActivity} />
         <h1 className="mt-3"><b>我的聚會</b></h1>
         <div className='d-flex justify-content-around my-4'>
             <CCol className='btn mx-2' style={chooseCSS(0)} onClick={e=>filterActivities(0)}>

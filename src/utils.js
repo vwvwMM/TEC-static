@@ -11,5 +11,13 @@ export const getParticipants = () => {
             p[k]=p[k].split('、')
         }
     }
+    for(let p of jp){
+        if (p.img.includes('/file/d/')){
+            p.img=p.img.split('/file/d/')[1].split('/')[0]
+        }
+        else{
+            p.img=p.img.split('?id=')[1]   
+        }
+    }
     return jp
 }

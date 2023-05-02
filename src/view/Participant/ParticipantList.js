@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Navbar, Footer, Spinner } from '.'
 import { freeSet } from '@coreui/icons'
-import { CFormSelect, CCol, CButton } from '@coreui/react'
+import { CFormSelect, CCol } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { getActivities, getParticipants } from '../../utils'
 let participants = []
@@ -36,7 +36,7 @@ const ParticipantList = () => {
     <div className='container pt-5'>
         {pending?<Spinner/>:
         <>
-            <Navbar head='All participants' url="/" icon={freeSet.cilZoom} iconFunc={searchParticipant} />
+            <Navbar head='All participants' url="/activities" icon={freeSet.cilZoom} iconFunc={searchParticipant} />
             <br/>
             <h1 className='my-4'><b>{activity.title}</b></h1>
             <div className='d-flex justify-content-around my-3'>
@@ -58,7 +58,7 @@ const ParticipantList = () => {
                     <Link to={`/participant/${participant.id}/?aid=${activity.id}`} className='text-decoration-none shadow'>
                         <div className='d-flex justify-content-between align-items-center mx-3 my-4'>
                             <div className='col-3 d-flex justify-content-center align-items-center card'>
-                                <img src={participant.img} className='img-fluid rounded card-img' style={{maxHeight: "10rem" }} />
+                                <img src={"https://drive.google.com/uc?export=view&id="+participant.img} className='img-fluid rounded card-img' style={{maxHeight: "15rem",objectFit:"cover" }} />
                                 <div className='card-img-overlay d-flex justify-content-end align-items-end'>
                                     <CIcon icon={freeSet.cilHeart} className='text-secondary bg-white p-1 rounded' size='xl'/>
                                 </div>
