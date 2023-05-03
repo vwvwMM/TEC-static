@@ -23,6 +23,7 @@ export const getParticipants = () => {
             p.img=imgPrefix+p.img.split('?id=')[1]   
         }
         p.hashtags = p.hashtags.split('#')
+        p.hashtags.shift()
         for(let k of listKey){
             p[k]=p[k].split('、')
             if(p[k].length===1&&p[k][0]==='') p[k]=['無']

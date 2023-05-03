@@ -57,11 +57,8 @@ const ParticipantList = () => {
                 {showParticipants.length>0?showParticipants.map(participant =>
                     <Link to={`/participant/${participant.id}/?aid=${activity.id}`} className='text-decoration-none shadow'>
                         <div className='d-flex justify-content-between align-items-center mx-3 my-4'>
-                            <div className='col-3 d-flex justify-content-center align-items-center card'>
-                                <img src={"https://drive.google.com/uc?export=view&id="+participant.img} className='img-fluid rounded card-img' style={{maxHeight: "35vh",objectFit:"cover" }} />
-                                <div className='card-img-overlay d-flex justify-content-end align-items-end'>
-                                    <CIcon icon={freeSet.cilHeart} className='text-secondary bg-white p-1 rounded' size='xl'/>
-                                </div>
+                            <div className='col-3 d-flex justify-content-center align-items-center'>
+                                <img src={participant.img} className='img-fluid rounded' style={{maxHeight: "35vh",objectFit:"cover" }} />
                             </div>
                             <div className='col-8'>
                                 <h3 className='my-2 text-dark'><b>{participant.name}/{participant.nickname}</b></h3>
