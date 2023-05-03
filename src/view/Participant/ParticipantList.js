@@ -1,28 +1,31 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useSearchParams } from 'react-router-dom'
 import { Navbar, Footer, Spinner } from '.'
-import { freeSet } from '@coreui/icons'
+import { cilList, freeSet } from '@coreui/icons'
 import { CFormSelect, CCol } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
 import { getActivities, getParticipants } from '../../utils'
 let participants = []
 const ParticipantList = () => {
     const { id } = useParams()
+    const [searchParams] = useSearchParams()
     const [activity, setActivity] = useState([])
     const [showParticipants, setShowParticipants] = useState([])
-    const [table, setTable] = useState(1)
-    const [mode, setMode] = useState(0)
+    const [table, setTable] = useState(searchParams.get('table')?Number(searchParams.get('table')):1)
+    const [mode, setMode] = useState(searchParams.get('mode')?Number(searchParams.get('mode')):0)
     const [pending, setPending] = useState(true)
     const chooseCSS = (m) => {
         return { backgroundColor: `${mode===m?'#d5b69c':'#f8f9fa'}`, color: `${mode===m?'white':'black'}`}
     }
-    const tableOptions = (totalNum) => {
-        let opts = []
-        for(let tableIdx=0; tableIdx<totalNum; tableIdx++){
-            opts.push({value: tableIdx+1, label: `${tableIdx+1}${tableIdx===0?'st':tableIdx===1?'nd':tableIdx===2?'rd':'th'} table`})
-        }
-        return opts
+    const tableOptions = (tableIdx) => {
+        return {value: tableIdx+1, label: `${tableIdx+1}${tableIdx===0?'st':tableIdx===1?'nd':tableIdx===2?'rd':'th'} table`}
     }
+    // const tableOptions = (totalNum) => {
+    //     let opts = []
+    //     for(let tableIdx=0; tableIdx<totalNum; tableIdx++){
+    //         opts.push({value: tableIdx+1, label: `${tableIdx+1}${tableIdx===0?'st':tableIdx===1?'nd':tableIdx===2?'rd':'th'} table`})
+    //     }
+    //     return opts
+    // }
     const searchParticipant = () => {}
     useEffect(() => {
         setActivity(getActivities().find(activity => activity.id===id))
@@ -48,11 +51,17 @@ const ParticipantList = () => {
                 </CCol>
             </div>
         </>}
-        {mode?<>
-                <CFormSelect className='d-flex justify-content-center rounded py-2 text-center my-4' style={{fontSize:"1.3rem", "backgroundColor":"#dfc7b3"}} onChange={e=>setTable(Number(e.target.value))} >
-                    {tableOptions(activity.tableNum).map((option) => 
+        {mode&&activity?<>
+                <CFormSelect className='d-flex justify-content-center rounded py-2 text-center my-4' style={{fontSize:"1.3rem", "backgroundColor":"#dfc7b3"}} placeholder={tableOptions(table).label} onChange={e=>setTable(Number(e.target.value))} >
+                    {[...Array(activity.tableNum).keys()].map((tableIdx) =>
+                        {
+                            if(tableIdx===table-1) return <option value={tableOptions(tableIdx).value} className='d-flex justify-content-center bg-light' selected>{tableOptions(tableIdx).label}</option>
+                            else return <option value={tableOptions(tableIdx).value} className='d-flex justify-content-center bg-light'>{tableOptions(tableIdx).label}</option>
+                        }
+                    )}
+                    {/* {tableOptions(activity.tableNum).map((option) => 
                             <option value={option.value} className='d-flex justify-content-center bg-light'>{option.label}</option>
-                            )}
+                            )} */}
                 </CFormSelect>
                 {showParticipants.length>0?showParticipants.map(participant =>
                     <Link to={`/participant/${participant.id}/?aid=${activity.id}`} className='text-decoration-none shadow'>

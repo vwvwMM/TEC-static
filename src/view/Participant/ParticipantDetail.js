@@ -21,7 +21,7 @@ const ParticipantDetail = () => {
   }, [])
   const content = (participant) =>{
     return <div className='card-img-overlay d-flex flex-column align-items-center' style={{backgroundColor:"#d5b69c"}}>
-      <Link to={`/activity/${aid}`} className='text-decoration-none align-self-start text-dark m-5'>
+      <Link to={`/activity/${aid}/?mode=1&table=${participant.table}`} className='text-decoration-none align-self-start text-dark m-5'>
           <CIcon icon={freeSet.cilArrowLeft} size="xxl" />
         </Link>
         <img src={participant.img} style={{maxHeight:"25vh", maxWidth:"50vh", zIndex:1, marginBottom:-30}} className='rounded-circle img-fluid bg-white p-4 d-lg-none' />
