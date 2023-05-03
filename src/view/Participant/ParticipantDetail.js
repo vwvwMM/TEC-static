@@ -24,8 +24,8 @@ const ParticipantDetail = () => {
       <Link to={`/activity/${aid}`} className='text-decoration-none align-self-start text-dark m-5'>
           <CIcon icon={freeSet.cilArrowLeft} size="xxl" />
         </Link>
-        <img src={"https://drive.google.com/uc?export=view&id="+participant.img} style={{maxHeight:"25vh", maxWidth:"50vh", zIndex:1, marginBottom:-30}} className='rounded-circle img-fluid bg-white p-4 d-lg-none' />
-        <img src={"https://drive.google.com/uc?export=view&id="+participant.img} style={{maxHeight:"45vh", maxWidth:"50vh", zIndex:1, marginBottom:-30}} className='rounded-circle img-fluid bg-white p-4 d-none d-lg-block' />
+        <img src={participant.img} style={{maxHeight:"25vh", maxWidth:"50vh", zIndex:1, marginBottom:-30}} className='rounded-circle img-fluid bg-white p-4 d-lg-none' />
+        <img src={participant.img} style={{maxHeight:"45vh", maxWidth:"50vh", zIndex:1, marginBottom:-30}} className='rounded-circle img-fluid bg-white p-4 d-none d-lg-block' />
         <div className='bg-white p-4 w-100 h-50 d-flex flex-column align-items-center'>   
           <h1 className='text-dark my-4'><b>{participant.name}/{participant.nickname}</b></h1>
           <div className='d-flex flex-around'>

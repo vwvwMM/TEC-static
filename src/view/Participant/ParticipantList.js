@@ -85,6 +85,10 @@ const ParticipantList = () => {
             <h4 className='text-dark bg-light p-4'>{activity.address}</h4>
             <h3><b>人數：</b></h3>
             <h4 className='text-dark bg-light p-4'>{participants.length}人</h4>
+            <h3><b>場地位置圖：</b></h3>
+            <h4 className='text-dark bg-light p-4'>
+                <img src={activity.tablePicture} className='img-fluid' />
+            </h4>
             <h3><b>活動流程：</b></h3>
             <h4 className='text-dark bg-light p-4'>{activity.flow}</h4>
             <h3><b>注意事項：</b></h3>
