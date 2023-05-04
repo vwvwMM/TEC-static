@@ -8,7 +8,7 @@ let participants = []
 const ParticipantList = () => {
     const { id } = useParams()
     const [searchParams, setSearchParams] = useSearchParams()
-    const [activity, setActivity] = useState([])
+    const [activity, setActivity] = useState(null)
     const [showParticipants, setShowParticipants] = useState([])
     const [table, setTable] = useState(searchParams.get('table')?Number(searchParams.get('table')):1)
     const [mode, setMode] = useState(searchParams.get('mode')?Number(searchParams.get('mode')):0)
@@ -48,7 +48,7 @@ const ParticipantList = () => {
                 </CCol>
             </div>
         </>}
-        {mode&&activity?<>
+        {activity&&(mode?<>
                 <CFormSelect className='d-flex justify-content-center rounded py-2 text-center my-4' style={{fontSize:"1.3rem", "backgroundColor":"#dfc7b3"}} onChange={chooseTable} >
                     {[...Array(activity.tableNum).keys()].map((tableIdx) =>
                         {
@@ -90,10 +90,14 @@ const ParticipantList = () => {
                 <img src={activity.tablePicture} className='img-fluid' />
             </h4>
             <h3><b>活動流程：</b></h3>
-            <h4 className='text-dark bg-light p-4'>{activity.flow}</h4>
+            <h4 className='text-dark bg-light p-4'>{activity.flow.map(flow=>
+                <span>{'\u2022 '+flow}<br/></span>    
+            )}</h4>
             <h3><b>注意事項：</b></h3>
-            <h4 className='text-dark bg-light p-4'>{activity.notice}</h4>
-        </div>}
+            <h4 className='text-dark bg-light p-4'>{activity.notice.map(notice=>
+                <span>{'\u2022 '+notice}<br/></span>        
+            )}</h4>
+        </div>)}
         <Footer bgColor='light' textColor='secondary' />
     </div>
   )

@@ -9,7 +9,13 @@ export const getActivities = () => {
         else if(a.tablePicture.includes('?id=')){
             a.tablePicture=imgPrefix+a.tablePicture.split('?id=')[1]   
         }
+        const listKey = ['notice','flow']
+        for(let k of listKey){
+            a[k]=a[k].split('\n')
+            if(a[k].length===1&&a[k][0]==='') a[k]=['無']
+        }
     }
+    console.log('ja=',ja)
     return ja
 }
 export const getParticipants = () => {
