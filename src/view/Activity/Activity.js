@@ -38,18 +38,20 @@ const Activity = () => {
             </CCol>
         </div>
         {pending?<Spinner/>:(activities.length>0?activities.map((activity) => (
-            <Link to={`/activity/${activity.id}`} className='text-decoration-none text-dark'>
-                <div className='d-flex justify-content-between align-items-center mx-3 my-4'>
+            <div className='d-flex justify-content-between align-items-center mx-3 my-4'>
                     <CCol className='col-3 d-flex justify-content-center align-items-center'>
+                <Link to={`/activity/${activity.id}`} className='text-decoration-none text-dark'>
                         <img src={activity.img} className='img-fluid rounded' style={{maxHeight: "10rem" }} />
+                </Link>
                     </CCol>
                     <CCol className='col-8'>
-                        <h3><b>{activity.title}</b></h3>
+                        <Link to={`/activity/${activity.id}`} className='text-decoration-none text-dark'>
+                            <h3><b>{activity.title}</b></h3>
+                        </Link>
                         <h5 className='text-secondary'>{activity.time}</h5>
-                        <a href={activity.addressLink} ><h5 className='text-secondary'>{activity.address}</h5></a>
+                        <a href={activity.addressLink} style={{zIndex:0}}><h5>{activity.address}</h5></a>
                     </CCol>
                 </div>
-            </Link>
         )):<h3 className='text-dark text-center bg-light p-5 m-5'>目前無聚會紀錄喔！</h3>)}
         <Footer bgColor='light' textColor='secondary' />
     </div>)

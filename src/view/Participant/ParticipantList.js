@@ -82,7 +82,7 @@ const ParticipantList = () => {
             <h3><b>時間：</b></h3>
             <h4 className='text-dark bg-light p-4'>{activity.time}</h4>
             <h3><b>地點：</b></h3>
-            <a href={activity.addressLink}><h4 className='text-dark bg-light p-4'>{activity.address}</h4></a>
+            <a href={activity.addressLink}><h4 className='bg-light p-4'>{activity.address}</h4></a>
             <h3><b>人數：</b></h3>
             <h4 className='text-dark bg-light p-4'>{participants.length}人</h4>
             <h3><b>場地位置圖：</b></h3>
