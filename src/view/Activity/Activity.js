@@ -46,7 +46,7 @@ const Activity = () => {
                     <CCol className='col-8'>
                         <h3><b>{activity.title}</b></h3>
                         <h5 className='text-secondary'>{activity.time}</h5>
-                        <h5 className='text-secondary'>{activity.address}</h5>
+                        <a href={activity.addressLink} ><h5 className='text-secondary'>{activity.address}</h5></a>
                     </CCol>
                 </div>
             </Link>
