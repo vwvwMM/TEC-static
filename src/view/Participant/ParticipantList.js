@@ -86,7 +86,7 @@ const ParticipantList = () => {
             <a href={activity.addressLink} target='_blank' rel="noopener noreferrer"><h4 className='bg-light p-4'>{activity.address}</h4></a>
             <h3><b>人數：</b></h3>
             <h4 className='text-dark bg-light p-4'>{participants.length}人</h4>
-            <h3><b>場地位置圖：</b></h3>
+            {/* <h3><b>場地位置圖：</b></h3>
             <h4 className='text-dark bg-light p-4'>
                 <img src={activity.tablePicture} className='img-fluid' />
             </h4>
@@ -97,7 +97,7 @@ const ParticipantList = () => {
             <h3><b>注意事項：</b></h3>
             <h4 className='text-dark bg-light p-4'>{activity.notice.map(notice=>
                 <span>{'\u2022 '+notice}<br/></span>        
-            )}</h4>
+            )}</h4> */}
         </div>)}
         <Footer bgColor='light' textColor='secondary' />
     </div>
