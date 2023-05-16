@@ -26,10 +26,10 @@ const ParticipantDetail = ({helps, setHelps}) => {
       <Link to={`/activity/${aid}/?mode=1&table=${participant.table}`} className='text-decoration-none align-self-start text-dark m-5'>
           <CIcon icon={freeSet.cilArrowLeft} size="xxl" />
         </Link>
-        <img src={participant.img} style={{maxHeight:"25vh", maxWidth:"50vh", zIndex:1, marginBottom:-30}} className='rounded-circle img-fluid bg-white p-4 d-lg-none' />
-        <img src={participant.img} style={{maxHeight:"45vh", maxWidth:"50vh", zIndex:1, marginBottom:-30}} className='rounded-circle img-fluid bg-white p-4 d-none d-lg-block' />
+        <img src={participant.img} style={{ maxWidth:"40vh", minHeight:'35vh', zIndex:1, marginBottom:-50}} className='img-fluid bg-white p-4 rounded-circle d-lg-none d-block' />
+        <img src={participant.img} style={{ maxWidth:"40vh", minHeight:'35vh', zIndex:1, marginBottom:-50}} className='img-fluid bg-white p-4 rounded-circle d-none d-lg-block d-block' />
         <div className='bg-white p-4 w-100 h-50 d-flex flex-column align-items-center'>   
-          <h1 className='text-dark my-4'><b>{participant.name}/{participant.nickname}</b></h1>
+          <h1 className='text-dark my-4'><b>{participant.name}{participant.nickname&&`/${participant.nickname}`}</b></h1>
           <div className='d-flex flex-around'>
             {participant.links.map(link=>{
               if(link.includes('facebook')) return(<a href={link} target='_blank' rel="noopener noreferrer" className='text-decoration-none text-dark'><img src={facebookIcon} /></a>)
