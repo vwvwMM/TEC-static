@@ -49,7 +49,7 @@ const Activity = () => {
                         <h3><b>{activity.title}</b></h3>
                     </Link>
                     <h5 className='text-secondary'>{activity.time}</h5>
-                    <a href={activity.addressLink} style={{zIndex:0}}><h5>{activity.address}</h5></a>
+                    <a href={activity.addressLink} target='_blank' rel="noopener noreferrer" style={{zIndex:0}}><h5>{activity.address}</h5></a>
                 </CCol>
             </div>
         )):<h3 className='text-dark text-center bg-light p-5 m-5'>目前無聚會紀錄喔！</h3>)}

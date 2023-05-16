@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link, useSearchParams } from 'react-router-dom'
 import { Navbar, Footer, Spinner } from '.'
-import { cilList, freeSet } from '@coreui/icons'
+import { freeSet } from '@coreui/icons'
 import { CFormSelect, CCol } from '@coreui/react'
 import { getActivities, getParticipants } from '../../utils'
 let participants = []
@@ -27,10 +27,11 @@ const ParticipantList = () => {
     useEffect(() => {
         setActivity(getActivities().find(activity => activity.id===id))
         participants = getParticipants()
+        setShowParticipants(getParticipants())
         setPending(false)
     }, [])
     useEffect(() => {
-        setShowParticipants(participants.filter(p=>p.table===table))
+        setShowParticipants(participants.filter(p=>p.table==table))
     }, [table])
   return (
     <div className='container pt-5'>
@@ -64,7 +65,7 @@ const ParticipantList = () => {
                                 <img src={participant.img} className='img-fluid rounded' style={{maxHeight: "35vh",objectFit:"cover" }} />
                             </div>
                             <div className='col-8'>
-                                <h3 className='my-2 text-dark'><b>{participant.name}/{participant.nickname}</b></h3>
+                                <h3 className='my-2 text-dark'><b>{participant.name}{participant.nickname&&`/${participant.nickname}`}</b></h3>
                                 <h4 className='text-secondary my-2'>
                                     {participant.hashtags.map((hashtag, idx) =>
                                         <span>#{hashtag}</span>
@@ -82,7 +83,7 @@ const ParticipantList = () => {
             <h3><b>時間：</b></h3>
             <h4 className='text-dark bg-light p-4'>{activity.time}</h4>
             <h3><b>地點：</b></h3>
-            <a href={activity.addressLink}><h4 className='bg-light p-4'>{activity.address}</h4></a>
+            <a href={activity.addressLink} target='_blank' rel="noopener noreferrer"><h4 className='bg-light p-4'>{activity.address}</h4></a>
             <h3><b>人數：</b></h3>
             <h4 className='text-dark bg-light p-4'>{participants.length}人</h4>
             <h3><b>場地位置圖：</b></h3>

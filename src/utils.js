@@ -19,7 +19,7 @@ export const getActivities = () => {
     return ja
 }
 export const getParticipants = () => {
-    const listKey = ["experiences","hobbies","strengths","links","more"]
+    const listKey = ["experiences","hobbies","strengths","links","more","help"]
     let jp=JSON.parse(process.env.REACT_APP_PARTICIPANT_DATA)
     for(let p of jp){
         if (p.img.includes('/file/d/')){
