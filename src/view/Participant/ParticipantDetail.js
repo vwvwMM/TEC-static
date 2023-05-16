@@ -26,8 +26,8 @@ const ParticipantDetail = ({helps, setHelps}) => {
       <Link to={`/activity/${aid}/?mode=1&table=${participant.table}`} className='text-decoration-none align-self-start text-dark m-5'>
           <CIcon icon={freeSet.cilArrowLeft} size="xxl" />
         </Link>
-        <img src={participant.img} style={{ maxWidth:"40vh", minHeight:'35vh', zIndex:1, marginBottom:-50}} className='img-fluid bg-white p-4 rounded-circle d-lg-none d-block' />
-        <img src={participant.img} style={{ maxWidth:"40vh", minHeight:'35vh', zIndex:1, marginBottom:-50}} className='img-fluid bg-white p-4 rounded-circle d-none d-lg-block d-block' />
+        <img src={participant.img} style={{ maxHeight:"35vh", maxWidth:'40vh', zIndex:1, marginBottom:-50}} className='bg-white p-4 rounded-circle img-fluid d-lg-none' />
+        <img src={participant.img} style={{ maxHeight:"35vh", maxWidth:'40vh', zIndex:1, marginBottom:-50}} className='bg-white p-4 rounded-circle img-fluid d-none d-lg-block' />
         <div className='bg-white p-4 w-100 h-50 d-flex flex-column align-items-center'>   
           <h1 className='text-dark my-4'><b>{participant.name}{participant.nickname&&`/${participant.nickname}`}</b></h1>
           <div className='d-flex flex-around'>
