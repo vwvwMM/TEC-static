@@ -36,7 +36,6 @@ const ParticipantDetail = ({helps, setHelps}) => {
               else if(link.includes('instagram')) return (<a href={link} target='_blank' rel="noopener noreferrer" className='text-decoration-none text-dark'><img src={instagramIcon} /></a>)
               else if(link.includes('linkedin')) return (<a href={link} target='_blank' rel="noopener noreferrer" className='text-decoration-none text-dark'><img src={linkedinIcon} /></a>)
               else if(link.includes('youtube')) return (<a href={link} target='_blank' rel="noopener noreferrer" className='text-decoration-none text-dark'><img src={youtubeIcon} /></a>)
-              // else return (<a href={link.includes('http')?link:''} target='_blank' rel="noopener noreferrer" onClick={()=>link.includes('http')?console.log('line link'):setLineModal(link)} className='text-decoration-none text-dark'><img src={lineIcon} /></a>)
               else {
                 if(link.includes('http'))
                   return <a href={link} target='_blank' rel="noopener noreferrer" className='text-decoration-none text-dark'><img src={lineIcon} /></a>
@@ -104,7 +103,7 @@ const ParticipantDetail = ({helps, setHelps}) => {
           </CButton>}
           <CButton color="primary" onClick={() => {
             setModal(false)
-            // if(helps.length>=3) return
+            if(helps.length>=3) return
             setHelps([...helps, participant.id])
             setMode('help')
           }}>
